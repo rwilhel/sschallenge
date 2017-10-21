@@ -2,15 +2,20 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+CONST PATH_BASE = 'https://blockchain.info/rawaddr/';
+
 class App extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
+      result: null,
       searchAddress: '',
     };
 
+    this.setSearchAddress = this.setSearchAddress.bind(this);
+    this.fetchSearchAddress = this.setSearchAddress.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
   }
 
@@ -57,7 +62,10 @@ class Table extends Component {
   render() {
 
     return (
-      <div></div>
+      <div className="table">
+        <div className="table-row"></div>
+          <span style={{ width: '40%' }}></span>
+      </div>
     );
   }
 }

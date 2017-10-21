@@ -50,12 +50,13 @@
 
 .table-row {
   display: flex;
-  line-height: 24px;
+  line-height: 30px;
   white-space: nowrap;
-  margin: 10px 0;
   padding: 10px;
-  background: #ffffff;
-  border: 1px solid #e3e3e3;
+  margin: 60px;
+  background: #F4F4F4;
+  border: 1px solid #DCD0C0;
+  width: 90%;
 }
 
 .table-header > span {
