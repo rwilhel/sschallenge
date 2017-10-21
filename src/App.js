@@ -19,22 +19,18 @@ class App extends Component {
   }
 
   render() {
-    const { searchAddress } = this.state;
+    const { searchAddress, results } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">BITCOIN TRANSACTIONS</h1>
-        </header>
-        <p className="App-intro">
-          Enter your Bitcoin address to see recent transactions!
-        </p>
-        <form>
-          <input
-            type="text"
-            value={searchAddress}
-            onChange={this.onSearchChange}
-          />
-        </form>
+        <Search
+          value={searchAddress}
+          onChange={this.onSearchChange}
+        />
+        <Table
+          results={results}
+          pattern={searchAddress}
+          onDismiss={this.onDismiss}
+        />
       </div>
     );
   }
