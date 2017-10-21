@@ -4,6 +4,16 @@ import './App.css';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.onSearchChange = this.onSearchChange.bind(this);
+  }
+
+  onSearchChange() {
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -14,7 +24,10 @@ class App extends Component {
           Enter your Bitcoin address to see recent transactions!
         </p>
         <form>
-          <input type="text" />
+          <input
+            type="text"
+            onChange={this.onSearchChange}
+          />
         </form>
       </div>
     );
