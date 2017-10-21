@@ -31,7 +31,9 @@ class App extends Component {
         <Search
           value={searchAddress}
           onChange={this.onSearchChange}
-        />
+        >
+          Search
+        </Search>
         <Table
           results={results}
           pattern={searchAddress}
