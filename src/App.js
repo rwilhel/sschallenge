@@ -32,7 +32,7 @@ class App extends Component {
           value={searchAddress}
           onChange={this.onSearchChange}
         >
-          Search
+          Bitcoin Address:
         </Search>
         <Table
           results={results}
@@ -46,10 +46,10 @@ class App extends Component {
 
 class Search extends Component {
   render() {
-    const { value, onChange } = this.props
+    const { value, onChange, children } = this.props
     return (
       <form>
-        <input
+        {children} <input
           type="text"
           value={value}
           onChange={onChange}
@@ -64,6 +64,26 @@ class Table extends Component {
 
     return (
       <div></div>
+    );
+  }
+}
+
+class Button extends Component {
+  render() {
+    const {
+      onClick,
+      className,
+      children,
+    } = this.props;
+
+    return (
+      <button
+        onClick={onClick}
+        className={className}
+        type="button"
+      >
+        {children}
+      </button>
     );
   }
 }
