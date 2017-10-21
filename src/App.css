@@ -3,16 +3,63 @@
 }
 
 .App-header {
-  background-color: #222;
-  height:75px;
+  background-color: #373737;
+  height: 50px;
   padding: 20px;
-  color: white;
+  color: #C0B283;
+  text-align: left;
 }
 
 .App-title {
   font-size: 1.5em;
+  font-family: Verdana;
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
 
 .App-intro {
   font-size: large;
+}
+
+.page {
+  margin: 20px;
+}
+
+.interactions {
+  text-align: center;
+}
+
+.table {
+  margin: 20px 0;
+}
+
+.table-header {
+  display: flex;
+  line-height: 24px;
+  font-size: 16px;
+  padding: 0 10px;
+  justify-content: space-between;
+}
+
+.table-empty {
+  margin: 200px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.table-row {
+  display: flex;
+  line-height: 24px;
+  white-space: nowrap;
+  margin: 10px 0;
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid #e3e3e3;
+}
+
+.table-header > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 5px;
 }

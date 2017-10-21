@@ -23,7 +23,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">BITCOIN TRANSACTIONS</h1>
+          <h1 className="App-title">XBT TRANSACTIONS</h1>
         </header>
         <p className="App-intro">
           Enter your Bitcoin address to see recent transactions!
@@ -32,7 +32,7 @@ class App extends Component {
           value={searchAddress}
           onChange={this.onSearchChange}
         >
-          Bitcoin Address:
+          XBT Address:
         </Search>
         <Table
           results={results}
@@ -62,11 +62,7 @@ class Table extends Component {
   }
 }
 
-const Button = ({
-  onClick,
-  className = '',
-  children,
-}) =>
+const Button = ({ onClick, className = '', children }) =>
   <button
     onClick={onClick}
     className={className}
