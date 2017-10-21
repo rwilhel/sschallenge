@@ -11,7 +11,7 @@ class App extends Component {
   }
 
   onSearchChange() {
-
+    this.setState({ searchAddress: event.target.value });
   }
 
   render() {
