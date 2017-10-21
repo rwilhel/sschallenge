@@ -22,6 +22,12 @@ class App extends Component {
     const { searchAddress, results } = this.state;
     return (
       <div className="App">
+        <header className="App-header">
+          <h1 className="App-title">BITCOIN TRANSACTIONS</h1>
+        </header>
+        <p className="App-intro">
+          Enter your Bitcoin address to see recent transactions!
+        </p>
         <Search
           value={searchAddress}
           onChange={this.onSearchChange}
@@ -32,6 +38,21 @@ class App extends Component {
           onDismiss={this.onDismiss}
         />
       </div>
+    );
+  }
+}
+
+class Search extends Component {
+  render() {
+    const { value, onChange } = this.props
+    return (
+      <form>
+        <input
+          type="text"
+          value={value}
+          onChange={onChange}
+        />
+      </form>
     );
   }
 }
