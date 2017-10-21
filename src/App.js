@@ -7,14 +7,19 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      searchAddress: '',
+    };
+
     this.onSearchChange = this.onSearchChange.bind(this);
   }
 
-  onSearchChange() {
+  onSearchChange(event) {
     this.setState({ searchAddress: event.target.value });
   }
 
   render() {
+    const { searchAddress } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -26,6 +31,7 @@ class App extends Component {
         <form>
           <input
             type="text"
+            value={searchAddress}
             onChange={this.onSearchChange}
           />
         </form>
