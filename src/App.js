@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-CONST PATH_BASE = 'https://blockchain.info/rawaddr/';
+const DEFAULT_QUERY = '1AJbsFZ64EpEfS5UAjAfcUG8pH8Jn3rn1F';
+const PATH_BASE = 'https://blockchain.info/rawaddr/';
 
 class App extends Component {
 
@@ -11,7 +12,7 @@ class App extends Component {
 
     this.state = {
       result: null,
-      searchAddress: '',
+      searchAddress: DEFAULT_QUERY,
     };
 
     this.setSearchAddress = this.setSearchAddress.bind(this);
@@ -19,12 +20,31 @@ class App extends Component {
     this.onSearchChange = this.onSearchChange.bind(this);
   }
 
+  setSearchAddress(result) {
+    this.setState({ result });
+  }
+
+  fetchSearchAddress(searchAddress) {
+    fetch(`${PATH_BASE}${searchAddress}`)
+      .then(response => response.json())
+      .then(result => this.setSearchAddress(result))
+      .catch(e => e);
+  }
+
+  componentDidMount() {
+    const { searchAddress } = this.state;
+    this.fetchSearchAddress(searchAddress);
+  }
+
   onSearchChange(event) {
     this.setState({ searchAddress: event.target.value });
   }
 
   render() {
-    const { searchAddress, results } = this.state;
+    const { searchAddress, result } = this.state;
+
+    if (!result) { return null; }
+
     return (
       <div className="App">
         <header className="App-header">
@@ -40,7 +60,7 @@ class App extends Component {
           XBT Address:
         </Search>
         <Table
-          results={results}
+          results={result.txs}
           pattern={searchAddress}
           onDismiss={this.onDismiss}
         />
