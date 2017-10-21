@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
@@ -12,6 +13,9 @@ class App extends Component {
         <p className="App-intro">
           Enter your Bitcoin address to see recent transactions!
         </p>
+        <form>
+          <input type="text" />
+        </form>
       </div>
     );
   }
