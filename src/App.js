@@ -79,7 +79,7 @@ class Button extends Component {
     return (
       <button
         onClick={onClick}
-        className={className}
+        className = '',
         type="button"
       >
         {children}
