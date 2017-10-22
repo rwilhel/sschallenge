@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 const DEFAULT_QUERY = '1AJbsFZ64EpEfS5UAjAfcUG8pH8Jn3rn1F';
-const PATH_BASE = 'https://blockchain.info/rawaddr/';
+const PATH_BASE = 'https://bitaps.com/api/address/transactions/';
+const PATH_END = '/0/received/confirmed';
 
 class App extends Component {
 
@@ -16,7 +16,7 @@ class App extends Component {
     };
 
     this.setSearchAddress = this.setSearchAddress.bind(this);
-    this.fetchSearchAddress = this.setSearchAddress.bind(this);
+    this.fetchSearchAddress = this.fetchSearchAddress.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
   }
 
@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   fetchSearchAddress(searchAddress) {
-    fetch(`${PATH_BASE}${searchAddress}`)
+    fetch(`${PATH_BASE}${searchAddress}${PATH_END}`)
       .then(response => response.json())
       .then(result => this.setSearchAddress(result))
       .catch(e => e);
@@ -42,7 +42,7 @@ class App extends Component {
 
   render() {
     const { searchAddress, result } = this.state;
-
+    console.log(this.state);
     if (!result) { return null; }
 
     return (
@@ -61,7 +61,7 @@ class App extends Component {
           Search
         </Search>
         <Table
-          results={result.txs}
+          results={result}
           pattern={searchAddress}
           onDismiss={this.onDismiss}
         />
@@ -89,8 +89,16 @@ const Search = ({
 
 const Table = ({ results }) =>
     <div className="table">
-      <div className="table-row"></div>
-        <span style={{ width: '40%' }}></span>
+      { results.map((tx, i) => (
+        <div key={i} className="table-row">
+          <span style={{ width: '40%' }}>
+            {tx[1]}
+          </span>
+          <span style={{ width: '20%' }}>
+            {tx[7]}
+          </span>
+        </div>
+      ))}
     </div>
 
 const Button = ({ onClick, className = '', children }) =>
