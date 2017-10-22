@@ -56,8 +56,9 @@ class App extends Component {
         <Search
           value={searchAddress}
           onChange={this.onSearchChange}
+          onSubmit={this.onSearchSubmit}
         >
-          XBT Address:
+          Search
         </Search>
         <Table
           results={result.txs}
@@ -69,26 +70,28 @@ class App extends Component {
   }
 }
 
-const Search = ({ value, onChange, children }) =>
-  <form>
-    {children} <input
+const Search = ({
+  value,
+  onChange,
+  onSubmit,
+  children
+}) =>
+  <form onSubmit={onSubmit}>
+    <input
       type="text"
       value={value}
       onChange={onChange}
     />
+    <button type="submit">
+      {children}
+    </button>
   </form>
 
-class Table extends Component {
-  render() {
-
-    return (
-      <div className="table">
-        <div className="table-row"></div>
-          <span style={{ width: '40%' }}></span>
-      </div>
-    );
-  }
-}
+const Table = ({ results }) =>
+    <div className="table">
+      <div className="table-row"></div>
+        <span style={{ width: '40%' }}></span>
+    </div>
 
 const Button = ({ onClick, className = '', children }) =>
   <button
