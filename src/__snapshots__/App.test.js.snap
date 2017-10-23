@@ -2,6 +2,16 @@
 
 exports[`App snapshots 1`] = `null`;
 
+exports[`Button snapshots 1`] = `
+<button
+  className=""
+  onClick={undefined}
+  type="button"
+>
+  Delete
+</button>
+`;
+
 exports[`Search snapshots 1`] = `
 <form
   onSubmit={undefined}
