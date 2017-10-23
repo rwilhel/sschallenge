@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-const DEFAULT_QUERY = '1AJbsFZ64EpEfS5UAjAfcUG8pH8Jn3rn1F';
+const DEFAULT_QUERY = '18Ms7igboNUpe3JrHUPzqNvU8qSvwScDVQ';
 const PATH_BASE = 'https://bitaps.com/api/address/transactions/';
 const PATH_END = '/0/received/confirmed';
 
@@ -18,6 +18,7 @@ class App extends Component {
     this.setSearchAddress = this.setSearchAddress.bind(this);
     this.fetchSearchAddress = this.fetchSearchAddress.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
+    this.onSearchSubmit = this.onSearchSubmit.bind(this);
   }
 
   setSearchAddress(result) {
@@ -40,9 +41,15 @@ class App extends Component {
     this.setState({ searchAddress: event.target.value });
   }
 
+  onSearchSubmit(event) {
+    const { searchAddress } = this.state;
+    this.fetchSearchAddress(searchAddress);
+    event.preventDefault();
+  }
+
   render() {
     const { searchAddress, result } = this.state;
-    console.log(this.state);
+
     if (!result) { return null; }
 
     return (
@@ -62,8 +69,6 @@ class App extends Component {
         </Search>
         <Table
           results={result}
-          pattern={searchAddress}
-          onDismiss={this.onDismiss}
         />
       </div>
     );
@@ -89,6 +94,14 @@ const Search = ({
 
 const Table = ({ results }) =>
     <div className="table">
+      <div className="table-row">
+        <span style={{ width: '40%' }}>
+          HASH
+        </span>
+        <span style={{ width: '20%' }}>
+          AMOUNT
+        </span>
+      </div>
       { results.map((tx, i) => (
         <div key={i} className="table-row">
           <span style={{ width: '40%' }}>

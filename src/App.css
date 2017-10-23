@@ -58,9 +58,3 @@
   border: 1px solid #DCD0C0;
   width: 90%;
 }
-
-.table-header > span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 0 5px;
-}
