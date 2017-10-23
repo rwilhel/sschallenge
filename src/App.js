@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-const DEFAULT_QUERY = '18Ms7igboNUpe3JrHUPzqNvU8qSvwScDVQ';
+const DEFAULT_QUERY = '1BoatSLRHtKNngkdXEeobR76b53LETtpyT';
 const PATH_BASE = 'https://bitaps.com/api/address/transactions/';
 const PATH_END = '/0/received/confirmed';
 
@@ -95,19 +95,19 @@ const Search = ({
 const Table = ({ results }) =>
     <div className="table">
       <div className="table-row">
-        <span style={{ width: '40%' }}>
-          HASH
+        <span style={{ width: '50%' }}>
+          TIMESTAMP
         </span>
-        <span style={{ width: '20%' }}>
+        <span style={{ width: '50%' }}>
           AMOUNT
         </span>
       </div>
       { results.map((tx, i) => (
         <div key={i} className="table-row">
-          <span style={{ width: '40%' }}>
-            {tx[1]}
+          <span style={{ width: '50%' }}>
+            {tx[0]}
           </span>
-          <span style={{ width: '20%' }}>
+          <span style={{ width: '50%' }}>
             {tx[7]}
           </span>
         </div>
