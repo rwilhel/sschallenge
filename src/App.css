@@ -1,3 +1,6 @@
+@xs_only: ~"screen and (max-width: 599px)";
+@sm: ~"screen and (min-width: 600px)";
+
 .App {
   text-align: center;
 }
@@ -23,15 +26,17 @@
 }
 
 .table {
+  width: 30%;
   margin: 0 auto;
-  width: 50%;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 .table-header {
   display: flex;
   line-height: 24px;
   font-size: 16px;
-  padding: 0 10px;
   justify-content: space-between;
 }
 
@@ -46,10 +51,9 @@
   line-height: 30px;
   white-space: nowrap;
   padding: 10px;
-  margin-left: 60px;
   background: #F4F4F4;
   border: 1px solid #DCD0C0;
-  width: 90%;
+  border-radius: 5px;
 }
 
 .table-header > span {
@@ -62,4 +66,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0 5px;
+}
+
+.header {
+  font-weight: bold;
+}
+
+.header-row {
+  background: #DCD0C0;
 }

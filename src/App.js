@@ -94,11 +94,11 @@ const Search = ({
 
 const Table = ({ results }) =>
     <div className="table">
-      <div className="table-row">
-        <span style={{ width: '50%' }}>
+      <div className="table-row header-row">
+        <span className="header" style={{ width: '50%' }}>
           TIMESTAMP
         </span>
-        <span style={{ width: '50%' }}>
+        <span className="header" style={{ width: '50%' }}>
           AMOUNT
         </span>
       </div>
